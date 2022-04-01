@@ -1,19 +1,24 @@
-function tests () {
-    const num = +prompt("введите число");
+function isEven (num) {
+    return num % 2 === 0;
+}
 
-    if (num % 2 === 0) {
-        alert ("Четное");
+function isSimple (num) {
+    if ((num === 1) || (num === 0)) {
+        return false;
     } else {
-        alert ("Не четное");
-    };
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;  
+    }
+}
 
-
-    if (num % 1 === 0) {
-        alert ("Целое число");
-    } else {
-        alert ("Не целое число");
-    };    
-};
-
-
-
+function testsNumber () {
+    const testNum = +prompt("введите число");
+   
+    console.log(`${testNum} это ${isEven(testNum) ? "четное" : "не четное"} число.`);
+    console.log(`${testNum} это ${isSimple(testNum) ? "простое" : "не простое"} число.`);
+    // Результат = Вопрос ? что если да : что если нет
+}
